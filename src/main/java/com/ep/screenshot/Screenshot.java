@@ -160,7 +160,7 @@ public class Screenshot {
 
 			try {
 				Message message = new MimeMessage(session);
-				message.setFrom(new InternetAddress(System.getProperty("fromEMail")));
+				message.setFrom(new InternetAddress(System.getProperty("fromEmail")));
 				message.setRecipients(Message.RecipientType.TO,
 						InternetAddress.parse(System.getProperty("FailedRecipientList")));
 				message.setSubject("EP Report Dashboard Execution Status!!!");

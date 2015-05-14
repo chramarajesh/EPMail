@@ -32,12 +32,12 @@ public class Screenshot {
 
 		boolean sendMail = true;
 		Properties props = new Properties();
-		props.put("mail.smtp.host", "smtp.gmail.com");
-		props.put("mail.smtp.socketFactory.port", "465");
+		props.put("mail.smtp.host", System.getProperty("mail.smtp.host"));
+		props.put("mail.smtp.socketFactory.port", System.getProperty("mail.smtp.socketFactory.port"));
 		props.put("mail.smtp.socketFactory.class",
 				"javax.net.ssl.SSLSocketFactory");
 		props.put("mail.smtp.auth", "true");
-		props.put("mail.smtp.port", "465");
+		props.put("mail.smtp.port", System.getProperty("mail.smtp.port"));
 
 		final String username = System.getProperty("FromEmailUserName");
 		final String password = System.getProperty("FromEmailPassWord");
@@ -78,12 +78,12 @@ public class Screenshot {
 			System.out.println("=========================IOE");
 			e.printStackTrace();
 			Properties props1 = new Properties();
-			props1.put("mail.smtp.host", "smtp.gmail.com");
-			props1.put("mail.smtp.socketFactory.port", "465");
-			props1.put("mail.smtp.socketFactory.class",
-					"javax.net.ssl.SSLSocketFactory");
-			props1.put("mail.smtp.auth", "true");
-			props1.put("mail.smtp.port", "465");
+			props1.put("mail.smtp.host", System.getProperty("mail.smtp.host"));
+		props1.put("mail.smtp.socketFactory.port", System.getProperty("mail.smtp.socketFactory.port"));
+		props1.put("mail.smtp.socketFactory.class",
+				"javax.net.ssl.SSLSocketFactory");
+		props1.put("mail.smtp.auth", "true");
+		props1.put("mail.smtp.port", System.getProperty("mail.smtp.port"));
 
 			final String username1 = System.getProperty("FromEmailUserName");
 			final String password1 = System.getProperty("FromEmailPassWord");

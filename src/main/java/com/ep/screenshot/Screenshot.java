@@ -26,7 +26,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class EPScreenshot {
+public class Screenshot {
 
 	public static void main(String a[]) throws InterruptedException {
 

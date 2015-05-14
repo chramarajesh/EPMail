@@ -30,8 +30,7 @@ public class Screenshot {
 
 	public static void main(String a[]) throws InterruptedException {
 
-		/*boolean sendMail = true;
-		
+		boolean sendMail = true;
 		Properties props = new Properties();
 		props.put("mail.smtp.host", "smtp.gmail.com");
 		props.put("mail.smtp.socketFactory.port", "465");
@@ -40,18 +39,18 @@ public class Screenshot {
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.port", "465");
 
-		final String username = System.getProperty("UserName");
-		final String password = "kingraj@123";
+		final String username = System.getProperty("FromEmailUserName");
+		final String password = System.getProperty("FromEmailPassWord");
 
 		WebDriver driver = new FirefoxDriver();
 		System.out.println("in method=============");
 		System.out.println(driver);
-		driver.get("http://20.20.20.25:8080/ReportServer/");
+		driver.get(System.getProperty("DashboardURL"));
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		HttpURLConnection connection = null;
 		try {
-			URL dashBoardURL = new URL("http://20.20.20.25:8080/ReportServer/");
+			URL dashBoardURL = new URL(System.getProperty("DashboardURL"));
 			connection = (HttpURLConnection) dashBoardURL.openConnection();
 			connection.setRequestMethod("HEAD");
 			System.out.println("connection : " + connection);
@@ -86,8 +85,8 @@ public class Screenshot {
 			props1.put("mail.smtp.auth", "true");
 			props1.put("mail.smtp.port", "465");
 
-			final String username1 = "chramarajesh";
-			final String password1 = "kingraj@123";
+			final String username1 = System.getProperty("FromEmailUserName");
+			final String password1 = System.getProperty("FromEmailPassWord");
 			sendMail = false;
 			File scrFile = ((TakesScreenshot) driver)
 					.getScreenshotAs(OutputType.FILE);
@@ -113,7 +112,7 @@ public class Screenshot {
 				Message message = new MimeMessage(session);
 				message.setFrom(new InternetAddress("chramarajesh@gmail.com"));
 				message.setRecipients(Message.RecipientType.TO,
-						InternetAddress.parse("rchittavarjula@ep.com"));
+						InternetAddress.parse(System.getProperty("FailedRecipientList")));
 				message.setSubject("EP Report Dashboard Execution Status!!!");
 
 				// This mail has 2 part, the BODY and the embedded image
@@ -167,7 +166,7 @@ public class Screenshot {
 				Message message = new MimeMessage(session);
 				message.setFrom(new InternetAddress("chramarajesh@gmail.com"));
 				message.setRecipients(Message.RecipientType.TO,
-						InternetAddress.parse("rchittavarjula@ep.com,nvishtamsetty@ep.com"));
+						InternetAddress.parse(System.getProperty("PassedRecipientList")));
 				message.setSubject("EP Report Dashboard Execution Status!!!");
 
 				// This mail has 2 part, the BODY and the embedded image
@@ -195,11 +194,7 @@ public class Screenshot {
 			} catch (MessagingException e) {
 				throw new RuntimeException(e);
 			}
-		}*/
-		
-		System.out.println("============================"+System.getProperty("FromEmailUserName"));
-		
-		
+		}
 		
 		
 	}

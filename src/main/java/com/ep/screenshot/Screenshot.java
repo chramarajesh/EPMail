@@ -46,7 +46,8 @@ public class Screenshot {
 		properties.put("mail.smtp.port", System.getProperty("mail.smtp.port"));
 
 		
-		WebDriver driver = new FirefoxDriver();
+			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/lib/chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
 		System.out.println("in method=============");
 		System.out.println(driver);
 		driver.get(System.getProperty("DashboardURL"));

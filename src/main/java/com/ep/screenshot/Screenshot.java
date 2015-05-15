@@ -103,17 +103,12 @@ public class Screenshot {
 				message.setFrom(new InternetAddress(System.getProperty("fromEmail")));
 				message.setRecipients(Message.RecipientType.TO,
 						InternetAddress.parse(System.getProperty("FailedRecipientList")));
-				message.setSubject("EP Report Dashboard Execution Status!!!");
-
-				// This mail has 2 part, the BODY and the embedded image
+				message.setSubject("EP Report Dashboard Execution Status!!!");				
 				MimeMultipart multipart = new MimeMultipart("related");
-				// first part (the html)
 				BodyPart messageBodyPart = new MimeBodyPart();
 				String htmlText = "<H1>EP Dash Board Results</H1><img src=\"cid:image\"><br>";
 				messageBodyPart.setContent(htmlText, "text/html;charset=utf-8");
-				// add it
 				multipart.addBodyPart(messageBodyPart);
-				// second part (the image)
 				messageBodyPart = new MimeBodyPart();
 				DataSource fds = new FileDataSource(
 						System.getProperty("user.dir") + "\\dashBoardImage.png");
@@ -121,12 +116,9 @@ public class Screenshot {
 						+ System.getProperty("user.dir")
 						+ "\\dashBoardImage.png");
 				messageBodyPart.setDataHandler(new DataHandler(fds));
-				messageBodyPart.setHeader("Content-ID", "<image>");
-				// add image to the multipart
-				multipart.addBodyPart(messageBodyPart);
-				// put everything together
-				message.setContent(multipart);
-				// Send the actual HTML message, as big as you like
+				messageBodyPart.setHeader("Content-ID", "<image>");				
+				multipart.addBodyPart(messageBodyPart);				
+				message.setContent(multipart);				
 				Transport.send(message);
 				System.out.println("Mail sent successfully!!!"
 						+ message.getAllRecipients());
@@ -146,10 +138,9 @@ public class Screenshot {
 						new File(System.getProperty("user.dir")
 								+ "\\dashBoardImage.png"));
 			} catch (IOException e2) {
-				// TODO Auto-generated catch block
 				e2.printStackTrace();
 			}
-			// driver.quit();
+		
 			Session session = Session.getDefaultInstance(properties,
 					new javax.mail.Authenticator() {
 						protected PasswordAuthentication getPasswordAuthentication() {
@@ -164,16 +155,11 @@ public class Screenshot {
 				message.setRecipients(Message.RecipientType.TO,
 						InternetAddress.parse(System.getProperty("FailedRecipientList")));
 				message.setSubject("EP Report Dashboard Execution Status!!!");
-
-				// This mail has 2 part, the BODY and the embedded image
 				MimeMultipart multipart = new MimeMultipart("related");
-				// first part (the html)
 				BodyPart messageBodyPart = new MimeBodyPart();
 				String htmlText = "<H1>EP Dash Board Results</H1><img src=\"cid:image\"><br>";
 				messageBodyPart.setContent(htmlText, "text/html;charset=utf-8");
-				// add it
-				multipart.addBodyPart(messageBodyPart);
-				// second part (the image)
+				multipart.addBodyPart(messageBodyPart);				
 				messageBodyPart = new MimeBodyPart();
 				DataSource fds = new FileDataSource(
 						System.getProperty("user.dir") + "\\dashBoardImage.png");
@@ -181,12 +167,9 @@ public class Screenshot {
 						+ System.getProperty("user.dir")
 						+ "\\dashBoardImage.png");
 				messageBodyPart.setDataHandler(new DataHandler(fds));
-				messageBodyPart.setHeader("Content-ID", "<image>");
-				// add image to the multipart
-				multipart.addBodyPart(messageBodyPart);
-				// put everything together
-				message.setContent(multipart);
-				// Send the actual HTML message, as big as you like
+				messageBodyPart.setHeader("Content-ID", "<image>");				
+				multipart.addBodyPart(messageBodyPart);				
+				message.setContent(multipart);			
 				Transport.send(message);
 				System.out.println("Mail sent successfully!!!"
 						+ message.getAllRecipients());
@@ -218,29 +201,20 @@ public class Screenshot {
 				message.setRecipients(Message.RecipientType.TO,
 						InternetAddress.parse(System.getProperty("PassedRecipientList")));
 				message.setSubject("EP Report Dashboard Execution Status!!!");
-
-				// This mail has 2 part, the BODY and the embedded image
-				MimeMultipart multipart = new MimeMultipart("related");
-				// first part (the html)
+				MimeMultipart multipart = new MimeMultipart("related");			
 				BodyPart messageBodyPart = new MimeBodyPart();
 				String htmlText = "<H1>EP Dash Board Results</H1><img src=\"cid:image\"><br>";
-				messageBodyPart.setContent(htmlText, "text/html;charset=utf-8");
-				// add it
-				multipart.addBodyPart(messageBodyPart);
-				// second part (the image)
+				messageBodyPart.setContent(htmlText, "text/html;charset=utf-8");				
+				multipart.addBodyPart(messageBodyPart);				
 				messageBodyPart = new MimeBodyPart();
 				DataSource fds = new FileDataSource(
 						System.getProperty("user.dir") + "\\dashBoardImage.png");
 				messageBodyPart.setDataHandler(new DataHandler(fds));
-				messageBodyPart.setHeader("Content-ID", "<image>");
-				// add image to the multipart
-				multipart.addBodyPart(messageBodyPart);
-				// put everything together
-				message.setContent(multipart);
-				// Send the actual HTML message, as big as you like
+				messageBodyPart.setHeader("Content-ID", "<image>");				
+				multipart.addBodyPart(messageBodyPart);			
+				message.setContent(multipart);				
 				Transport.send(message);
-				System.out.println("Mail sent successfully!!!");
-
+				System.out.println("Mail sent successfully!!!!!!!!!!!!!!");
 			} catch (MessagingException e) {
 				throw new RuntimeException(e);
 			}
